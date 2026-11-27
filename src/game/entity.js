@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { loadModel } from '../engine/modelLoader.js';
 
 const _v = new THREE.Vector3();
 const _w = new THREE.Vector3();
@@ -38,7 +39,12 @@ export class Entity {
     let model = null;
     try {
       const mod = await import('./entityModel.js');
-      model = await mod.createEntityModel(this.game.gltfLoader);
+      const base = import.meta.env.BASE_URL + 'assets/entity/';
+      let gltf = null;
+      for (const name of ['lodger.glb', 'lodger.gltf.json']) {
+        try { gltf = await loadModel(this.game.gltfLoader, base + name); break; } catch (e) { /* try the next form */ }
+      }
+      model = await mod.createEntityModel(this.game.gltfLoader, gltf ? { gltf } : {});
     } catch (e) { console.warn('entity model fallback', e); model = fallbackModel(); }
     this.model = model;
     this.model.object.visible = false;

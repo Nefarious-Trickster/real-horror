@@ -65,7 +65,7 @@ The game takes about 20–30 minutes and has checkpoints once the hunt begins.
   - The creature: generated procedurally as a signed-distance-field body, polygonised, skinned and posed (`tools/entity/`).
   - Audio: 102 sounds synthesised offline (`tools/audio/`). The mother's voice is public-domain TTS, processed.
 
-`tools/test/` has headless Playwright scripts: screenshots, a perf probe, and an automated full playthrough
+`tools/build-artifact.sh` makes a copy of `dist/` for strict static hosts (models as self-contained glTF JSON, decoded in-browser by `src/engine/modelLoader.js`). `tools/test/` has headless Playwright scripts, a strict-CSP test server (`csp_server.py`, `modelcheck.cjs`): screenshots, a perf probe, and an automated full playthrough
 (`node tools/test/playthrough.cjs <outdir> <url> [checkpoint]`).
 
 See [DESIGN.md](DESIGN.md) for the full design document.

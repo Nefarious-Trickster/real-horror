@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { loadModel } from '../engine/modelLoader.js';
 import { Collider, LV } from './house.js';
 import { worldUV } from './materials.js';
 
@@ -28,7 +29,7 @@ export class Props {
       try {
         let gltf = null, err = null;
         for (let attempt = 0; attempt < 4 && !gltf; attempt++) {
-          try { gltf = await this.loader.loadAsync(BASE + this.manifest[id].file); }
+          try { gltf = await loadModel(this.loader, BASE + this.manifest[id].file); }
           catch (e) { err = e; await new Promise((r) => setTimeout(r, 400 * (attempt + 1))); }
         }
         if (!gltf) throw err;
