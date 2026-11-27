@@ -33,8 +33,8 @@ class Game {
     this.surge = 0;
     this.inventory = new Set();
     this.heartT = 0;
-    this.settings = { sens: 1, vol: 1, gamma: 1.1, subs: true };
-    try { Object.assign(this.settings, JSON.parse(localStorage.getItem('vigil.settings') || '{}')); } catch (e) {}
+    this.settings = { sens: 1, vol: 1, gamma: 1.3, subs: true };
+    try { Object.assign(this.settings, JSON.parse(localStorage.getItem('vigil.settings.v2') || '{}')); } catch (e) {}
     this.clock = new THREE.Clock();
   }
 
@@ -91,7 +91,7 @@ class Game {
     this.audio.setVolume?.(s.vol);
     this.R.fx.uGamma.value = s.gamma;
     this.ui.subsOn = s.subs;
-    try { localStorage.setItem('vigil.settings', JSON.stringify(s)); } catch (e) {}
+    try { localStorage.setItem('vigil.settings.v2', JSON.stringify(s)); } catch (e) {}
   }
 
   bindUI() {

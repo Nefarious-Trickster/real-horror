@@ -143,6 +143,8 @@ export function buildSetpieces(game) {
     grp.add(sheet);
     grp.traverse((o) => { if (o.isMesh) o.receiveShadow = true; });
     scene.add(grp);
+    game.house.collider(cx - 1.05, G, cz - 0.38, cx + 1.05, G + 1.1, cz + 0.38, 'prop', false);
+    game.house.collider(-6.88, G, 4.1, -6.6, G + 2, 4.8, 'prop', false); // lid against the wall
     // crumpled sheet for later (on the floor)
     const crumple = clothGeometry(1.3, 1.6, 40, 34, (x, z) => {
       let h = 0.005;
@@ -183,6 +185,7 @@ export function buildSetpieces(game) {
     for (let i = 0; i < 4; i++) { const d = new THREE.Mesh(new THREE.SphereGeometry(0.008, 6, 4), wax); d.scale.y = 3; const a = Math.random() * 6.28; d.position.set(Math.cos(a) * 0.027, 1.38 - Math.random() * 0.08, Math.sin(a) * 0.027); grp.add(d); }
     grp.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
     scene.add(grp);
+    game.house.collider(x - 0.13, G, z - 0.13, x + 0.13, G + 1.5, z + 0.13, 'prop', false);
     const flame = props.flame(x, G + 1.46, z, { lit: false, size: 1.2 });
     SP.candles.push({ group: grp, flame, get lit() { return flame.lit; } });
   }

@@ -137,10 +137,11 @@ export class Director {
     const g = this.game, P = g.props, sp = g.sp, I = g.interact;
     // lamps
     this.lamps = {
-      parlor: P.lamp(-1.75, G + 1.0, 5.6, { intensity: 3.2, distance: 7, flicker: 0.1, bulb: false, color: 0xffb070 }),
-      hallS: P.lamp(0, GC - 0.2, 4.3, { intensity: 3.5, distance: 6 }),
+      parlor: P.lamp(-1.75, G + 1.0, 5.6, { intensity: 6, distance: 8, flicker: 0.1, bulb: false, color: 0xffb070 }),
+      console: P.lamp(-6.35, G + 1.35, 1.25, { intensity: 3.5, distance: 5, bulb: false, color: 0xffa860 }),
+      hallS: P.lamp(0, GC - 0.2, 4.3, { intensity: 5, distance: 7 }),
       hallN: P.lamp(-0.4, GC - 0.2, -3.6, { intensity: 3.0, distance: 6, flicker: 0.2 }),
-      kitchen: P.lamp(-4.1, GC - 0.62, -3.0, { intensity: 5, distance: 7.5, bulb: false }),
+      kitchen: P.lamp(-4.1, GC - 0.62, -3.0, { intensity: 7, distance: 8, bulb: false }),
       back: P.lamp(3.5, GC - 0.25, -3.0, { intensity: 2.5, distance: 6, flicker: 0.5 }),
       b1: P.lamp(4.0, BC - 0.2, -3.5, { intensity: 4, distance: 7, circuit: 'basement' }),
       b2: P.lamp(3.6, BC - 0.2, 3.0, { intensity: 4, distance: 7, circuit: 'basement' }),
@@ -224,10 +225,40 @@ export class Director {
     this.tvLight = new THREE.PointLight(0xa8c0ff, 0, 4, 2); this.tvLight.position.set(4.7, G + 1.4, -3.0); g.scene.add(this.tvLight);
     I.add(this.tvScreen, () => this.tvH?.alive ? 'Switch it off' : null, () => this.tvOff());
     this.staticTex = makeStaticTexture();
+    // glints on everything the story needs you to find
+    const has = (i) => this.has(i);
+    this.glint(sp.matches, () => !has('matches'), [0, 0.03, 0]);
+    this.glint(sp.casketNote, () => !this.flags.read_casket, [0, 0.03, 0]);
+    sp.candles.forEach((c) => this.glint(c.flame.sprite, () => has('matches') && !c.flame.lit && this.stage === 0, [0, -0.04, 0], 0.8));
+    this.glint(sp.kitchenDrawer, () => this.flags.flashlightAllowed && !has('flashlight'), [0, 0.02, 0.06]);
+    this.glint(this.phoneHit, () => this.flags.ringing, [0, 0, 0.1]);
+    this.glint(sp.fuseHit, () => !has('fuse') && !this.flags.fuseFitted && this.stage >= 3, [0, 0.03, 0]);
+    this.glint(sp.fuseboxHit, () => has('fuse'), [0.2, 0, 0]);
+    this.glint(sp.diary, () => !this.flags.diaryRead && this.stage >= 5, [0, 0.04, 0]);
+    this.glint(sp.toyChestHit, () => !has('pole') && !this.flags.hatchOpen && this.stage >= 6, [0, 0.3, 0]);
+    this.glint(sp.hatchHit, () => has('pole') && !this.flags.hatchOpen, [0, -0.2, -0.3]);
+    this.glint(sp.keyHit, () => !has('key') && this.stage >= 7, [0, 0.03, 0]);
+    for (const b of sp.batteries) this.glint(b, () => b.visible, [0, 0.04, 0], 0.7);
     // initial power: on in the main house, the cellar circuit is dead
     g.power.main = true; g.power.basement = false;
     this.lamps.back.broken = false;
     for (const k of ['b1', 'b2', 'b3']) this.lamps[k].on = true;
+  }
+
+  // soft pulsing glints so key items can be found in the dark
+  glint(obj, active, offset = [0, 0.05, 0], size = 1) {
+    if (!this._glintTex) {
+      const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d');
+      const g = x.createRadialGradient(32, 32, 0, 32, 32, 32); g.addColorStop(0, 'rgba(255,240,210,1)'); g.addColorStop(0.15, 'rgba(255,230,190,0.7)'); g.addColorStop(1, 'rgba(255,220,180,0)');
+      x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+      x.strokeStyle = 'rgba(255,240,220,0.5)'; x.lineWidth = 1.5; x.beginPath(); x.moveTo(32, 4); x.lineTo(32, 60); x.moveTo(4, 32); x.lineTo(60, 32); x.stroke();
+      this._glintTex = new THREE.CanvasTexture(c);
+    }
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: this._glintTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0 }));
+    const p = obj.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(...offset));
+    s.position.copy(p); s.scale.setScalar(0.09 * size); s.renderOrder = 5;
+    this.game.scene.add(s);
+    (this.glints = this.glints || []).push({ s, active, phase: Math.random() * 6 });
   }
 
   useDoor(d) {
@@ -282,6 +313,12 @@ export class Director {
   // ---------------------------------------------------------- per-frame
   perFrame(dt, t) {
     const g = this.game;
+    if (this.glints) for (const gl of this.glints) {
+      const on = gl.active() && gl.s.position.distanceTo(g.camera.position) < 9;
+      const target = on ? 0.35 + 0.3 * Math.sin(t * 2.4 + gl.phase) : 0;
+      gl.s.material.opacity += (target - gl.s.material.opacity) * Math.min(1, dt * 4);
+      gl.s.visible = gl.s.material.opacity > 0.01;
+    }
     // tv static animation
     if (this.tvH?.alive) { this.staticTex.offset.set(Math.random(), Math.random()); this.tvLight.intensity = 0.8 + Math.random() * 0.6; }
     // rocking chair
@@ -371,7 +408,7 @@ export class Director {
     this.objective('Read the note on the casket.', 'The vigil');
     await this.until(() => this.flags.read_casket && !g.ui.noteOpen);
     await this.wait(0.6);
-    this.objective('Light the three candles. The matches are on the console.');
+    this.objective('Light the three candles. The matches are on the carved table, right of the far window.');
     let warned = false;
     await this.until(() => {
       if (!warned && this.flags.candlesLit >= 2) { warned = true; this.lamps.parlor.flicker = 0.9; setTimeout(() => { this.lamps.parlor.flicker = 0.1; }, 2500); }

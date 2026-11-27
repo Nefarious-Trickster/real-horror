@@ -111,7 +111,7 @@ export class Exterior {
     this.light = L; this.target = new THREE.Object3D(); L.target = this.target;
     scene.add(L, this.target);
     // faint moon fill coming in from outside
-    this.moon = new THREE.HemisphereLight(0x1a2030, 0x050403, 0.06);
+    this.moon = new THREE.HemisphereLight(0x2a3040, 0x0c0a08, 0.16);
     scene.add(this.moon);
   }
 
@@ -164,6 +164,6 @@ export class Exterior {
     this.light.intensity = f * 900;
     const gm = this.game.house.glassMat;
     if (gm) gm.emissive.setRGB(0.25 * f, 0.28 * f, 0.36 * f);
-    this.moon.intensity = 0.05 + f * 0.25;
+    this.moon.intensity = 0.16 + f * 0.3;
   }
 }

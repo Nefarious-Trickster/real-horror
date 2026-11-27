@@ -26,7 +26,12 @@ export class Props {
     let done = 0;
     await Promise.all(ids.map(async (id) => {
       try {
-        const gltf = await this.loader.loadAsync(BASE + this.manifest[id].file);
+        let gltf = null, err = null;
+        for (let attempt = 0; attempt < 4 && !gltf; attempt++) {
+          try { gltf = await this.loader.loadAsync(BASE + this.manifest[id].file); }
+          catch (e) { err = e; await new Promise((r) => setTimeout(r, 400 * (attempt + 1))); }
+        }
+        if (!gltf) throw err;
         const root = gltf.scene;
         root.traverse((o) => {
           if (o.isMesh) {
@@ -36,7 +41,14 @@ export class Props {
           }
         });
         this.cache.set(id, root);
-      } catch (e) { console.warn('model fail', id, e); }
+      } catch (e) {
+        console.warn('model fail', id, e);
+        // stand-in so the room isn't missing furniture (and collision still matches)
+        const [w, h, d] = this.manifest[id].size; const [cx, cy, cz] = this.manifest[id].center;
+        const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), new THREE.MeshStandardMaterial({ color: 0x3a2a1e, roughness: 0.8 }));
+        m.position.set(cx, cy, cz); m.castShadow = m.receiveShadow = true;
+        const root = new THREE.Group(); root.add(m); this.cache.set(id, root); this.failed = (this.failed || 0) + 1;
+      }
       done++; onProgress?.(done / ids.length);
     }));
   }
