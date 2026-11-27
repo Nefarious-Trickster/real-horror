@@ -224,6 +224,30 @@ export class Entity {
     return r < 0.15 && ceilingOk ? 'ceiling' : 'stand';
   }
 
+  // driven back by the light: retreat out of sight, far away, then a grace period
+  recoil(minD = 8, maxD = 18) {
+    const g = this.game, h = g.house;
+    if (this.mode !== 'hunt' && this.mode !== 'stalk') return;
+    const pp = g.player.pos, cam = g.camera.position;
+    const from = this.pos.clone().setY(this.pos.y + 1.5);
+    const cands = [...h.nodes.values()].filter((n) => !n.disabled && Math.abs(n.p.y - pp.y) < 1.6)
+      .map((n) => ({ n, d: n.p.distanceTo(pp) })).filter((c) => c.d >= minD && c.d <= maxD);
+    // prefer spots you can't see from where you stand
+    cands.sort((a, b) => {
+      const va = h.raycast(cam, a.n.p.clone().setY(a.n.p.y + 1.5), false) < 0.98 ? 0 : 1;
+      const vb = h.raycast(cam, b.n.p.clone().setY(b.n.p.y + 1.5), false) < 0.98 ? 0 : 1;
+      return va - vb || b.d - a.d;
+    });
+    let pick = cands[0]?.n;
+    if (!pick) { const all = [...h.nodes.values()].filter((n) => !n.disabled).sort((a, b) => b.p.distanceTo(pp) - a.p.distanceTo(pp)); pick = all[0]; }
+    g.audio.play('entity_skitter', { pos: from, volume: 1.0, rate: 1.15 });
+    if (this.mode === 'stalk') { this.hide(); return; }
+    this.placeAt(pick.p, 'stand');
+    this.node = pick; this.pendingDoor = null;
+    this.nextMove = 7 + Math.random() * 3;
+    this.unseen = 0;
+  }
+
   // ---------------------------------------------------------- hiding search
   beginSearch(spot) {
     if (this.mode !== 'hunt') return;
@@ -307,7 +331,7 @@ export class Entity {
         g.director.say('vo_dont_look', this.model.faceAnchor.getWorldPosition(new THREE.Vector3()), { volume: 0.9 });
       }
       // dread grows when you hold it in the light
-      g.dread = Math.min(1.2, g.dread + dt * seen * (0.05 + 0.55 / Math.max(1, dist)));
+      g.dread = Math.min(1.2, g.dread + dt * Math.min(1, seen * 1.6) * (0.06 + 0.22 / Math.max(1, dist)));
       // the flashlight struggles near it
       if (dist < 7 && Math.random() < dt * (0.25 + (7 - dist) * 0.12)) g.flashlight.flicker = Math.max(g.flashlight.flicker, 0.12 + Math.random() * 0.25);
     } else {
@@ -328,7 +352,7 @@ export class Entity {
     if (this.mode === 'hunt') {
       if (g.player.hiding) { this.beginSearch(g.player.hiding); }
       this.nextMove -= dt;
-      if (this.nextMove <= 0 && this.unseen > (this.cfg.react ?? 0.3)) {
+      if (this.nextMove <= 0 && this.unseen > (this.cfg.react ?? 0.3) && g.flashlight.dead <= 0) {
         this.tryMove();
         const [a, b] = this.cfg.interval;
         this.nextMove = a + Math.random() * (b - a);

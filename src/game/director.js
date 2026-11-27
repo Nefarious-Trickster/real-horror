@@ -55,7 +55,7 @@ I asked you to sit the vigil because the old way says it stays in the box until 
 
 If you are reading this, it is already out.
 
-Keep the light on it. Don't let it reach you in the dark. If it is close and you cannot run, hide and do not breathe.
+Keep the light on it. Hold it in the light long enough and it runs — it can't stand it for long, and neither can the bulb. Don't let it reach you in the dark. If it is close and you cannot run, hide and do not breathe.
 
 Get out of the house, Eli. It can only wear what's inside.`,
 };
@@ -574,8 +574,17 @@ export class Director {
     this.sfx('floor_creak', door.clone().setY(U + 0.2), { volume: 0.9 });
     g.entity.placeAt(door, 'stand', this.p.pos);
     g.entity.mode = 'hunt'; g.entity.cfg = { interval: [3.8, 5.5], step: 2.2, killDist: 1.4, lunge: 1.0, react: 0.55 };
-    g.entity.nextMove = 6;
+    g.entity.nextMove = 999;
     g.ui.hint('It cannot move while it is seen. Keep the light on it.', 7);
+    const t0 = g.time;
+    await this.until(() => g.entity.seenAmt > 0.05 || g.time - t0 > 6);
+    const t1 = g.time;
+    await this.until(() => g.time - t1 > 2.2);
+    g.flashlight.flicker = 0.6;
+    await this.wait(0.35);
+    g.flashlight.dead = 0.5;
+    g.entity.recoil(9, 20);
+    g.ui.hint('Hold the light on it and it will flee. But it always comes back.', 7);
     this.setCheckpoint('hunt');
     g.ambTarget.dread = 0.35; g.ambTarget.hunt = 0.6;
   }

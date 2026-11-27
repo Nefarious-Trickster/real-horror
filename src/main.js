@@ -195,10 +195,11 @@ class Game {
     // dread decays
     if (this.entity.seenAmt < 0.05) this.dread = Math.max(0, this.dread - dt * 0.09);
     if (this.dread >= 1) {
-      // overload: the light dies for a moment
-      this.flashlight.dead = 1.1; this.dread = 0.62; this.tear = 1; this.shock(0.7);
+      // overload: the light gutters out and it flees from it
+      this.flashlight.dead = 0.8; this.dread = 0.35; this.tear = 1; this.shock(0.7);
       this.audio.play('flashlight_flicker', { volume: 0.8 });
       this.audio.play('tinnitus', { volume: 0.5 });
+      this.entity.recoil();
     }
     this.shockV = Math.max(0, this.shockV - dt * 1.6);
     this.tear = Math.max(0, this.tear - dt * 1.8);
