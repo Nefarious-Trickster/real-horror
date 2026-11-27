@@ -1,0 +1,29 @@
+{
+  "name": "vigil",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nefarious-Trickster/real-horror.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nefarious-Trickster/real-horror/issues"
+  },
+  "homepage": "https://github.com/Nefarious-Trickster/real-horror#readme",
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/cli": "^4.5.1",
+    "vite": "^6.4.6"
+  },
+  "type": "module"
+}

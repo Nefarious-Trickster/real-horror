@@ -1,0 +1,1182 @@
+{
+  "_info": "Poly Haven CC0 models at 1k, optimised (webp textures, simplified to ~12k tris where dense, KHR_mesh_quantization except skinned). Real-world metres. Front faces +Z; origin at the base unless noted. size/center = bounding box as exported. Regenerate: python3 tools/assets/fetch_models.py && node tools/assets/model_manifest.mjs",
+  "models": {
+    "ArmChair_01": {
+      "file": "ArmChair_01.glb",
+      "size": [
+        0.848,
+        1.065,
+        0.766
+      ],
+      "center": [
+        0,
+        0.532,
+        -0.034
+      ],
+      "minY": 0,
+      "tris": 5626,
+      "bytes": 583012
+    },
+    "Barrel_01": {
+      "file": "Barrel_01.glb",
+      "size": [
+        0.563,
+        0.88,
+        0.563
+      ],
+      "center": [
+        0,
+        0.433,
+        0
+      ],
+      "minY": -0.007,
+      "tris": 2682,
+      "bytes": 464972
+    },
+    "Chandelier_01": {
+      "file": "Chandelier_01.glb",
+      "size": [
+        0.746,
+        0.798,
+        0.816
+      ],
+      "center": [
+        0,
+        -0.399,
+        0.006
+      ],
+      "minY": -0.798,
+      "tris": 13139,
+      "bytes": 596564,
+      "note": "ceiling chandelier; origin at the top mount"
+    },
+    "ClassicConsole_01": {
+      "file": "ClassicConsole_01.glb",
+      "size": [
+        1.543,
+        0.949,
+        0.589
+      ],
+      "center": [
+        0.001,
+        0.475,
+        -0.044
+      ],
+      "minY": 0,
+      "tris": 7566,
+      "bytes": 507248
+    },
+    "ClassicNightstand_01": {
+      "file": "ClassicNightstand_01.glb",
+      "size": [
+        0.568,
+        0.7,
+        0.424
+      ],
+      "center": [
+        0,
+        0.35,
+        0
+      ],
+      "minY": 0,
+      "tris": 2002,
+      "bytes": 231096
+    },
+    "CoffeeTable_01": {
+      "file": "CoffeeTable_01.glb",
+      "size": [
+        1.54,
+        0.523,
+        0.973
+      ],
+      "center": [
+        0,
+        0.264,
+        0
+      ],
+      "minY": 0.002,
+      "tris": 10404,
+      "bytes": 581416
+    },
+    "GothicBed_01": {
+      "file": "GothicBed_01.glb",
+      "size": [
+        1.494,
+        1.534,
+        2.04
+      ],
+      "center": [
+        0.036,
+        0.767,
+        -0.033
+      ],
+      "minY": 0,
+      "tris": 11999,
+      "bytes": 583340
+    },
+    "GothicCabinet_01": {
+      "file": "GothicCabinet_01.glb",
+      "size": [
+        1.719,
+        2.361,
+        1.116
+      ],
+      "center": [
+        0,
+        1.18,
+        0.101
+      ],
+      "minY": 0,
+      "tris": 12170,
+      "bytes": 622304
+    },
+    "GothicCommode_01": {
+      "file": "GothicCommode_01.glb",
+      "size": [
+        1.201,
+        1.212,
+        0.581
+      ],
+      "center": [
+        -0.001,
+        0.606,
+        0.001
+      ],
+      "minY": 0,
+      "tris": 3897,
+      "bytes": 325356
+    },
+    "Lantern_01": {
+      "file": "Lantern_01.glb",
+      "size": [
+        0.122,
+        0.294,
+        0.097
+      ],
+      "center": [
+        0,
+        0.147,
+        0
+      ],
+      "minY": 0,
+      "tris": 13322,
+      "bytes": 381544
+    },
+    "Ottoman_01": {
+      "file": "Ottoman_01.glb",
+      "size": [
+        0.885,
+        0.624,
+        0.621
+      ],
+      "center": [
+        0.002,
+        0.312,
+        0.001
+      ],
+      "minY": 0,
+      "tris": 4240,
+      "bytes": 470712
+    },
+    "Rockingchair_01": {
+      "file": "Rockingchair_01.glb",
+      "size": [
+        0.708,
+        0.995,
+        0.834
+      ],
+      "center": [
+        0,
+        0.599,
+        0.062
+      ],
+      "minY": 0.102,
+      "tris": 11866,
+      "bytes": 509756
+    },
+    "Shelf_01": {
+      "file": "Shelf_01.glb",
+      "size": [
+        1.003,
+        2.08,
+        0.257
+      ],
+      "center": [
+        0,
+        1.04,
+        0.128
+      ],
+      "minY": 0,
+      "tris": 182,
+      "bytes": 418956
+    },
+    "Sofa_01": {
+      "file": "Sofa_01.glb",
+      "size": [
+        1.571,
+        0.797,
+        0.658
+      ],
+      "center": [
+        0.008,
+        0.398,
+        -0.032
+      ],
+      "minY": -0.001,
+      "tris": 4101,
+      "bytes": 308796
+    },
+    "Television_01": {
+      "file": "Television_01.glb",
+      "size": [
+        0.6,
+        0.457,
+        0.471
+      ],
+      "center": [
+        0,
+        0.228,
+        -0.023
+      ],
+      "minY": 0,
+      "tris": 1918,
+      "bytes": 306188,
+      "note": "1970s/80s wood-side CRT TV"
+    },
+    "WoodenChair_01": {
+      "file": "WoodenChair_01.glb",
+      "size": [
+        0.688,
+        2.274,
+        0.658
+      ],
+      "center": [
+        0,
+        1.135,
+        -0.038
+      ],
+      "minY": -0.001,
+      "tris": 12000,
+      "bytes": 586636,
+      "note": "a tall carved gothic throne-like chair (2.27 m), not a plain kitchen chair"
+    },
+    "WoodenTable_01": {
+      "file": "WoodenTable_01.glb",
+      "size": [
+        1.8,
+        0.549,
+        0.657
+      ],
+      "center": [
+        0,
+        0.274,
+        0
+      ],
+      "minY": 0,
+      "tris": 952,
+      "bytes": 307776
+    },
+    "antique_ceramic_vase_01": {
+      "file": "antique_ceramic_vase_01.glb",
+      "size": [
+        0.255,
+        0.44,
+        0.255
+      ],
+      "center": [
+        0,
+        0.22,
+        0
+      ],
+      "minY": 0,
+      "tris": 9408,
+      "bytes": 209276
+    },
+    "barrel_stove": {
+      "file": "barrel_stove.glb",
+      "size": [
+        0.593,
+        0.856,
+        0.593
+      ],
+      "center": [
+        0,
+        0.428,
+        0
+      ],
+      "minY": 0,
+      "tris": 9216,
+      "bytes": 511552
+    },
+    "bench_vice_01": {
+      "file": "bench_vice_01.glb",
+      "size": [
+        0.2,
+        0.285,
+        0.396
+      ],
+      "center": [
+        0,
+        0.057,
+        0.017
+      ],
+      "minY": -0.086,
+      "tris": 2864,
+      "bytes": 250576,
+      "note": "skinned (rigged) mesh; not quantized"
+    },
+    "book_encyclopedia_set_01": {
+      "file": "book_encyclopedia_set_01.glb",
+      "size": [
+        0.551,
+        0.237,
+        0.163
+      ],
+      "center": [
+        0.256,
+        0.119,
+        0.019
+      ],
+      "minY": 0,
+      "tris": 28308,
+      "bytes": 1328444,
+      "note": "a row of 20 books, each its own node"
+    },
+    "brass_candleholders": {
+      "file": "brass_candleholders.glb",
+      "size": [
+        1.052,
+        0.835,
+        0.364
+      ],
+      "center": [
+        0.077,
+        0.417,
+        0
+      ],
+      "minY": 0,
+      "tris": 14520,
+      "bytes": 857168,
+      "note": "three holders side by side (x = -0.4, 0, +0.4): small single, triple, five-arm candelabra"
+    },
+    "cardboard_box_01": {
+      "file": "cardboard_box_01.glb",
+      "size": [
+        0.387,
+        0.342,
+        0.516
+      ],
+      "center": [
+        0.001,
+        0.164,
+        0.033
+      ],
+      "minY": -0.007,
+      "tris": 12000,
+      "bytes": 443336
+    },
+    "crowbar_01": {
+      "file": "crowbar_01.glb",
+      "size": [
+        0.04,
+        0.555,
+        0.128
+      ],
+      "center": [
+        0.005,
+        -0.018,
+        0.031
+      ],
+      "minY": -0.296,
+      "tris": 2300,
+      "bytes": 267648
+    },
+    "dining_chair_02": {
+      "file": "dining_chair_02.glb",
+      "size": [
+        0.434,
+        0.973,
+        0.576
+      ],
+      "center": [
+        0,
+        0.488,
+        -0.043
+      ],
+      "minY": 0.001,
+      "tris": 11999,
+      "bytes": 408900
+    },
+    "dining_table": {
+      "file": "dining_table.glb",
+      "size": [
+        2.256,
+        0.877,
+        1.39
+      ],
+      "center": [
+        -0.005,
+        0.434,
+        0.017
+      ],
+      "minY": -0.004,
+      "tris": 1048,
+      "bytes": 369172,
+      "note": "has a gingham tablecloth"
+    },
+    "drawer_cabinet": {
+      "file": "drawer_cabinet.glb",
+      "size": [
+        1.141,
+        1.881,
+        0.488
+      ],
+      "center": [
+        0,
+        0.941,
+        -0.004
+      ],
+      "minY": 0,
+      "tris": 11997,
+      "bytes": 482144
+    },
+    "electric_stove": {
+      "file": "electric_stove.glb",
+      "size": [
+        0.503,
+        0.859,
+        0.648
+      ],
+      "center": [
+        0,
+        0.429,
+        0.024
+      ],
+      "minY": 0,
+      "tris": 13914,
+      "bytes": 521432
+    },
+    "fancy_picture_frame_01": {
+      "file": "fancy_picture_frame_01.glb",
+      "size": [
+        0.603,
+        0.464,
+        0.02
+      ],
+      "center": [
+        0,
+        0,
+        0.012
+      ],
+      "minY": -0.232,
+      "tris": 938,
+      "bytes": 444552,
+      "note": "wall-mounted: origin at the centre of the back face (z = 0); place flush on a wall, front +Z"
+    },
+    "fancy_picture_frame_02": {
+      "file": "fancy_picture_frame_02.glb",
+      "size": [
+        0.661,
+        0.771,
+        0.089
+      ],
+      "center": [
+        -0.002,
+        -0.006,
+        0.046
+      ],
+      "minY": -0.391,
+      "tris": 12000,
+      "bytes": 819544,
+      "note": "wall-mounted: origin at the centre of the back face (z = 0); place flush on a wall, front +Z"
+    },
+    "hanging_picture_frame_01": {
+      "file": "hanging_picture_frame_01.glb",
+      "size": [
+        0.594,
+        0.841,
+        0.016
+      ],
+      "center": [
+        0,
+        0,
+        0.008
+      ],
+      "minY": -0.42,
+      "tris": 2586,
+      "bytes": 170500,
+      "note": "wall-mounted: origin at the centre of the back face (z = 0); place flush on a wall, front +Z; black empty board/frame — good for a custom photo texture"
+    },
+    "hanging_picture_frame_02": {
+      "file": "hanging_picture_frame_02.glb",
+      "size": [
+        0.752,
+        0.5,
+        0.033
+      ],
+      "center": [
+        0,
+        -0.029,
+        0.019
+      ],
+      "minY": -0.279,
+      "tris": 3678,
+      "bytes": 316908,
+      "note": "wall-mounted: origin at the centre of the back face (z = 0); place flush on a wall, front +Z; white frame with a black canvas area — good for a custom photo/scratched-out portrait"
+    },
+    "hatchet": {
+      "file": "hatchet.glb",
+      "size": [
+        0.026,
+        0.289,
+        0.104
+      ],
+      "center": [
+        0,
+        0.083,
+        0.025
+      ],
+      "minY": -0.062,
+      "tris": 5250,
+      "bytes": 196924
+    },
+    "horse_statue_01": {
+      "file": "horse_statue_01.glb",
+      "size": [
+        0.163,
+        0.22,
+        0.108
+      ],
+      "center": [
+        -0.004,
+        0.11,
+        0
+      ],
+      "minY": 0,
+      "tris": 11998,
+      "bytes": 411108
+    },
+    "lantern_chandelier_01": {
+      "file": "lantern_chandelier_01.glb",
+      "size": [
+        0.579,
+        0.878,
+        0.575
+      ],
+      "center": [
+        0.004,
+        -0.426,
+        0
+      ],
+      "minY": -0.865,
+      "tris": 5971,
+      "bytes": 429756,
+      "note": "ceiling lantern; origin at the top, hangs down"
+    },
+    "lightbulb_01": {
+      "file": "lightbulb_01.glb",
+      "size": [
+        0.06,
+        0.1,
+        0.06
+      ],
+      "center": [
+        0,
+        0.033,
+        0
+      ],
+      "minY": -0.017,
+      "tris": 4372,
+      "bytes": 126280,
+      "note": "glass bulb looks black with no emissive; set emissive in code if used lit"
+    },
+    "mantel_clock_01": {
+      "file": "mantel_clock_01.glb",
+      "size": [
+        0.342,
+        0.16,
+        0.126
+      ],
+      "center": [
+        0,
+        0.081,
+        0
+      ],
+      "minY": 0,
+      "tris": 11998,
+      "bytes": 312316
+    },
+    "metal_tool_chest": {
+      "file": "metal_tool_chest.glb",
+      "size": [
+        0.685,
+        0.652,
+        0.407
+      ],
+      "center": [
+        -0.027,
+        0.327,
+        0.006
+      ],
+      "minY": 0.001,
+      "tris": 13360,
+      "bytes": 555776
+    },
+    "metal_toolbox": {
+      "file": "metal_toolbox.glb",
+      "size": [
+        0.4,
+        0.305,
+        0.271
+      ],
+      "center": [
+        0,
+        0.152,
+        -0.021
+      ],
+      "minY": 0,
+      "tris": 14228,
+      "bytes": 430780
+    },
+    "mousetrap": {
+      "file": "mousetrap.glb",
+      "size": [
+        0.055,
+        0.018,
+        0.1
+      ],
+      "center": [
+        0,
+        0.009,
+        0
+      ],
+      "minY": 0,
+      "tris": 5136,
+      "bytes": 211600
+    },
+    "old_bed_frame": {
+      "file": "old_bed_frame.glb",
+      "size": [
+        0.905,
+        1.201,
+        2.002
+      ],
+      "center": [
+        0.005,
+        0.601,
+        0.002
+      ],
+      "minY": 0,
+      "tris": 11905,
+      "bytes": 658144
+    },
+    "old_gas_mask": {
+      "file": "old_gas_mask.glb",
+      "size": [
+        0.211,
+        1.126,
+        0.309
+      ],
+      "center": [
+        0,
+        -0.442,
+        0.032
+      ],
+      "minY": -1.005,
+      "tris": 11999,
+      "bytes": 474688,
+      "note": "hanging: origin is at the top hook, the hose hangs down to y = -1.0"
+    },
+    "ornate_mirror_01": {
+      "file": "ornate_mirror_01.glb",
+      "size": [
+        0.487,
+        0.744,
+        0.026
+      ],
+      "center": [
+        0,
+        -0.039,
+        0.013
+      ],
+      "minY": -0.411,
+      "tris": 14246,
+      "bytes": 435908,
+      "note": "wall-mounted: origin at the centre of the back face (z = 0); place flush on a wall, front +Z; mirror glass is metallic/roughness 0 — reflects scene.environment"
+    },
+    "painted_wooden_bench": {
+      "file": "painted_wooden_bench.glb",
+      "size": [
+        1.165,
+        0.889,
+        0.496
+      ],
+      "center": [
+        0.006,
+        0.444,
+        -0.005
+      ],
+      "minY": -0.001,
+      "tris": 630,
+      "bytes": 286756
+    },
+    "painted_wooden_cabinet": {
+      "file": "painted_wooden_cabinet.glb",
+      "size": [
+        1.195,
+        1.182,
+        0.617
+      ],
+      "center": [
+        0.003,
+        0.591,
+        0.026
+      ],
+      "minY": 0,
+      "tris": 2227,
+      "bytes": 295520
+    },
+    "power_box_01": {
+      "file": "power_box_01.glb",
+      "size": [
+        0.461,
+        0.503,
+        0.399
+      ],
+      "center": [
+        -0.056,
+        0,
+        0.152
+      ],
+      "minY": -0.252,
+      "tris": 11998,
+      "bytes": 573888,
+      "note": "modern-ish breaker board with an open door — the fuse box"
+    },
+    "pull_chain_light_socket": {
+      "file": "pull_chain_light_socket.glb",
+      "size": [
+        0.11,
+        0.165,
+        0.11
+      ],
+      "center": [
+        0,
+        -0.083,
+        0
+      ],
+      "minY": -0.165,
+      "tris": 10902,
+      "bytes": 299632,
+      "note": "ceiling fitting; origin at the ceiling mount, hangs down"
+    },
+    "rubber_boots": {
+      "file": "rubber_boots.glb",
+      "size": [
+        0.89,
+        0.372,
+        0.266
+      ],
+      "center": [
+        0,
+        0.186,
+        -0.001
+      ],
+      "minY": 0,
+      "tris": 12000,
+      "bytes": 269168,
+      "note": "contains two pairs side by side (a clean and a muddy variant)"
+    },
+    "side_table_01": {
+      "file": "side_table_01.glb",
+      "size": [
+        0.55,
+        0.551,
+        0.45
+      ],
+      "center": [
+        0,
+        0.273,
+        0
+      ],
+      "minY": -0.002,
+      "tris": 2756,
+      "bytes": 283076
+    },
+    "spinning_wheel_01": {
+      "file": "spinning_wheel_01.glb",
+      "size": [
+        0.489,
+        0.966,
+        1.025
+      ],
+      "center": [
+        0.025,
+        0.483,
+        0.038
+      ],
+      "minY": 0,
+      "tris": 11965,
+      "bytes": 820684
+    },
+    "standing_picture_frame_01": {
+      "file": "standing_picture_frame_01.glb",
+      "size": [
+        0.1,
+        0.25,
+        0.201
+      ],
+      "center": [
+        -0.011,
+        0.124,
+        0
+      ],
+      "minY": 0,
+      "tris": 1634,
+      "bytes": 84072
+    },
+    "steel_frame_shelves_01": {
+      "file": "steel_frame_shelves_01.glb",
+      "size": [
+        1.097,
+        2.141,
+        0.502
+      ],
+      "center": [
+        0,
+        1.069,
+        0
+      ],
+      "minY": -0.001,
+      "tris": 4348,
+      "bytes": 263260,
+      "note": "source authored at 10x scale; fixed (x0.1) in postprocess"
+    },
+    "tea_set_01": {
+      "file": "tea_set_01.glb",
+      "size": [
+        0.918,
+        0.165,
+        0.484
+      ],
+      "center": [
+        0.019,
+        0.082,
+        -0.042
+      ],
+      "minY": -0.001,
+      "tris": 15938,
+      "bytes": 409564,
+      "note": "a spread-out set: teapot, cups, saucers"
+    },
+    "television_02": {
+      "file": "television_02.glb",
+      "size": [
+        0.4,
+        0.411,
+        0.35
+      ],
+      "center": [
+        -0.002,
+        0.206,
+        -0.053
+      ],
+      "minY": 0,
+      "tris": 2310,
+      "bytes": 110776,
+      "note": "1980s grey CRT TV"
+    },
+    "tool_cart": {
+      "file": "tool_cart.glb",
+      "size": [
+        1.273,
+        0.965,
+        0.754
+      ],
+      "center": [
+        -0.021,
+        0.479,
+        -0.008
+      ],
+      "minY": -0.004,
+      "tris": 12000,
+      "bytes": 641844
+    },
+    "treasure_chest": {
+      "file": "treasure_chest.glb",
+      "size": [
+        0.959,
+        0.618,
+        0.522
+      ],
+      "center": [
+        0,
+        0.308,
+        0.001
+      ],
+      "minY": -0.001,
+      "tris": 16649,
+      "bytes": 900084
+    },
+    "vintage_cabinet_01": {
+      "file": "vintage_cabinet_01.glb",
+      "size": [
+        2.021,
+        2.235,
+        0.67
+      ],
+      "center": [
+        0,
+        1.117,
+        0.057
+      ],
+      "minY": -0.001,
+      "tris": 12000,
+      "bytes": 771056
+    },
+    "vintage_day_bed": {
+      "file": "vintage_day_bed.glb",
+      "size": [
+        1.973,
+        1.127,
+        0.855
+      ],
+      "center": [
+        0,
+        0.564,
+        -0.042
+      ],
+      "minY": 0,
+      "tris": 2715,
+      "bytes": 517184
+    },
+    "vintage_flashlight": {
+      "file": "vintage_flashlight.glb",
+      "size": [
+        0.096,
+        0.144,
+        0.305
+      ],
+      "center": [
+        0,
+        0.072,
+        0
+      ],
+      "minY": 0,
+      "tris": 10562,
+      "bytes": 311944,
+      "note": "large red signal/lantern-style flashlight (not a slim handheld torch)"
+    },
+    "vintage_grandfather_clock_01": {
+      "file": "vintage_grandfather_clock_01.glb",
+      "size": [
+        0.626,
+        2.191,
+        0.427
+      ],
+      "center": [
+        0,
+        1.095,
+        0.025
+      ],
+      "minY": 0,
+      "tris": 8582,
+      "bytes": 549900
+    },
+    "vintage_oil_lamp": {
+      "file": "vintage_oil_lamp.glb",
+      "size": [
+        0.22,
+        0.802,
+        0.22
+      ],
+      "center": [
+        0,
+        0.401,
+        0
+      ],
+      "minY": 0,
+      "tris": 7208,
+      "bytes": 387092
+    },
+    "vintage_suitcase": {
+      "file": "vintage_suitcase.glb",
+      "size": [
+        1.608,
+        0.568,
+        0.239
+      ],
+      "center": [
+        0.001,
+        0.284,
+        -0.009
+      ],
+      "minY": 0,
+      "tris": 11992,
+      "bytes": 611012,
+      "note": "contains two suitcases side by side"
+    },
+    "vintage_telephone_wall_clock": {
+      "file": "vintage_telephone_wall_clock.glb",
+      "size": [
+        0.343,
+        0.501,
+        0.193
+      ],
+      "center": [
+        -0.005,
+        0.177,
+        0.096
+      ],
+      "minY": -0.074,
+      "tris": 11999,
+      "bytes": 617604,
+      "note": "red crank-style wall unit with bells and a clock face; the closest thing to an old wall telephone (no rotary phone model exists on Poly Haven)"
+    },
+    "wall_clock": {
+      "file": "wall_clock.glb",
+      "size": [
+        0.32,
+        0.32,
+        0.047
+      ],
+      "center": [
+        0,
+        0,
+        0.024
+      ],
+      "minY": -0.16,
+      "tris": 3658,
+      "bytes": 163152,
+      "note": "wall-mounted: origin at the centre of the back face (z = 0); place flush on a wall, front +Z"
+    },
+    "wheelchair_01": {
+      "file": "wheelchair_01.glb",
+      "size": [
+        0.824,
+        1.103,
+        1.091
+      ],
+      "center": [
+        -0.002,
+        0.557,
+        0.06
+      ],
+      "minY": 0.006,
+      "tris": 11992,
+      "bytes": 598532
+    },
+    "wicker_basket_01": {
+      "file": "wicker_basket_01.glb",
+      "size": [
+        0.383,
+        0.117,
+        0.295
+      ],
+      "center": [
+        0,
+        0.058,
+        0
+      ],
+      "minY": -0.001,
+      "tris": 16716,
+      "bytes": 454364
+    },
+    "wooden_bookshelf_worn": {
+      "file": "wooden_bookshelf_worn.glb",
+      "size": [
+        1.374,
+        2.063,
+        0.581
+      ],
+      "center": [
+        0,
+        1.032,
+        0
+      ],
+      "minY": 0,
+      "tris": 10106,
+      "bytes": 737352
+    },
+    "wooden_bucket_01": {
+      "file": "wooden_bucket_01.glb",
+      "size": [
+        0.367,
+        0.55,
+        0.342
+      ],
+      "center": [
+        -0.001,
+        0.275,
+        0.001
+      ],
+      "minY": 0,
+      "tris": 5116,
+      "bytes": 411288
+    },
+    "wooden_candlestick": {
+      "file": "wooden_candlestick.glb",
+      "size": [
+        0.097,
+        0.22,
+        0.099
+      ],
+      "center": [
+        0,
+        0.11,
+        0
+      ],
+      "minY": 0,
+      "tris": 12779,
+      "bytes": 348060
+    },
+    "wooden_crate_01": {
+      "file": "wooden_crate_01.glb",
+      "size": [
+        0.825,
+        0.35,
+        0.409
+      ],
+      "center": [
+        0,
+        0.167,
+        0.008
+      ],
+      "minY": -0.008,
+      "tris": 6576,
+      "bytes": 432348
+    },
+    "wooden_ladder": {
+      "file": "wooden_ladder.glb",
+      "size": [
+        0.959,
+        1.335,
+        0.5
+      ],
+      "center": [
+        -0.005,
+        0.667,
+        0
+      ],
+      "minY": 0,
+      "tris": 8492,
+      "bytes": 602128
+    },
+    "wooden_stool_01": {
+      "file": "wooden_stool_01.glb",
+      "size": [
+        0.425,
+        0.437,
+        0.442
+      ],
+      "center": [
+        0,
+        0.219,
+        0
+      ],
+      "minY": 0,
+      "tris": 10946,
+      "bytes": 332584
+    }
+  }
+}

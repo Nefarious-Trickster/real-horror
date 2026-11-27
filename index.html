@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VIGIL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Homemade+Apple&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/ui/style.css" />
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <div id="fade"></div>
+
+  <div id="hud" class="hidden">
+    <div id="dot"></div>
+    <div id="prompt"></div>
+    <div id="objective"></div>
+    <div id="subtitle"></div>
+    <div id="hint"></div>
+    <div id="battery"><div id="batteryFill"></div></div>
+    <div id="breath"><div id="breathFill"></div></div>
+    <div id="inventory"></div>
+  </div>
+
+  <div id="hideOverlay" class="hidden"><div class="slat l"></div><div class="slat r"></div></div>
+
+  <div id="note" class="hidden">
+    <div class="paper"><div id="noteText"></div></div>
+    <div class="close">[E] put it down</div>
+  </div>
+
+  <div id="title" class="screen">
+    <div class="titleInner">
+      <h1 id="logo">VIGIL</h1>
+      <p class="tag">Sit with her until dawn.</p>
+      <div id="loading"><div id="loadBar"></div><span id="loadText">Gathering the house…</span></div>
+      <button id="start" class="btn hidden">Begin the vigil</button>
+      <div id="settings" class="hidden">
+        <label>Look sensitivity <input id="sens" type="range" min="0.3" max="2.5" step="0.05" value="1" /></label>
+        <label>Volume <input id="vol" type="range" min="0" max="1.5" step="0.05" value="1" /></label>
+        <label>Brightness <input id="gamma" type="range" min="0.8" max="1.8" step="0.05" value="1.1" /></label>
+        <label class="chk"><input id="subs" type="checkbox" checked /> Subtitles</label>
+      </div>
+      <p class="warn">Headphones. Lights off. Alone, if you can.<br />WASD to move · Mouse to look · Shift to run · C to crouch · F for the flashlight · E to interact · Esc to pause</p>
+      <p class="content">Contains sudden loud noises, flashing lights and disturbing imagery.</p>
+    </div>
+  </div>
+
+  <div id="pause" class="screen hidden">
+    <div class="titleInner">
+      <h2>Paused</h2>
+      <button id="resume" class="btn">Return</button>
+      <div id="settings2"></div>
+      <button id="restartCp" class="btn small">Restart from checkpoint</button>
+    </div>
+  </div>
+
+  <div id="death" class="screen hidden">
+    <div class="titleInner">
+      <h2 id="deathTitle">You broke the vigil.</h2>
+      <p id="deathText"></p>
+      <button id="retry" class="btn">Try again</button>
+    </div>
+  </div>
+
+  <div id="end" class="screen hidden">
+    <div class="titleInner">
+      <p id="endText"></p>
+      <button id="again" class="btn hidden">Return to the house</button>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

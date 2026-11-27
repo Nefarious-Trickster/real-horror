@@ -1,0 +1,230 @@
+{
+  "textures": {
+    "floor_wood": {
+      "maps": {
+        "diff": "floor_wood/diff.jpg",
+        "nor": "floor_wood/nor.jpg",
+        "rough": "floor_wood/rough.jpg",
+        "ao": "floor_wood/ao.jpg"
+      },
+      "tileSize": [
+        2.03,
+        2.03
+      ],
+      "source": "https://polyhaven.com/a/old_wooden_floor_02",
+      "license": "CC0",
+      "note": "old dark hardwood floorboards"
+    },
+    "wall_plaster": {
+      "maps": {
+        "diff": "wall_plaster/diff.jpg",
+        "nor": "wall_plaster/nor.jpg",
+        "rough": "wall_plaster/rough.jpg",
+        "ao": "wall_plaster/ao.jpg"
+      },
+      "tileSize": [
+        2.0,
+        2.0
+      ],
+      "source": "https://polyhaven.com/a/painted_plaster_wall",
+      "license": "CC0",
+      "note": "aged off-white painted plaster"
+    },
+    "wall_damaged": {
+      "maps": {
+        "diff": "wall_damaged/diff.jpg",
+        "nor": "wall_damaged/nor.jpg",
+        "rough": "wall_damaged/rough.jpg",
+        "ao": "wall_damaged/ao.jpg"
+      },
+      "tileSize": [
+        1.85,
+        1.85
+      ],
+      "source": "https://polyhaven.com/a/damaged_plaster",
+      "license": "CC0",
+      "note": "plaster chipped back to brick (accent / decay)"
+    },
+    "ceiling_plaster": {
+      "maps": {
+        "diff": "ceiling_plaster/diff.jpg",
+        "nor": "ceiling_plaster/nor.jpg",
+        "rough": "ceiling_plaster/rough.jpg",
+        "ao": "ceiling_plaster/ao.jpg"
+      },
+      "tileSize": [
+        2.0,
+        2.0
+      ],
+      "source": "https://polyhaven.com/a/ceiling_interior",
+      "license": "CC0",
+      "note": "ceiling paint with drips"
+    },
+    "wood_trim": {
+      "maps": {
+        "diff": "wood_trim/diff.jpg",
+        "nor": "wood_trim/nor.jpg",
+        "rough": "wood_trim/rough.jpg",
+        "ao": "wood_trim/ao.jpg"
+      },
+      "tileSize": [
+        2.0,
+        2.0
+      ],
+      "source": "https://polyhaven.com/a/dark_wood",
+      "license": "CC0",
+      "note": "dark varnished mahogany for doors/skirting/trim"
+    },
+    "wainscot": {
+      "maps": {
+        "diff": "wainscot/diff.jpg",
+        "nor": "wainscot/nor.jpg",
+        "rough": "wainscot/rough.jpg",
+        "ao": "wainscot/ao.jpg"
+      },
+      "tileSize": [
+        1.4,
+        1.4
+      ],
+      "source": "https://polyhaven.com/a/dark_paneled_wood",
+      "license": "CC0",
+      "note": "dark panelled wood (wainscoting, casket)"
+    },
+    "concrete_floor": {
+      "maps": {
+        "diff": "concrete_floor/diff.jpg",
+        "nor": "concrete_floor/nor.jpg",
+        "rough": "concrete_floor/rough.jpg",
+        "ao": "concrete_floor/ao.jpg"
+      },
+      "tileSize": [
+        2.0,
+        2.0
+      ],
+      "source": "https://polyhaven.com/a/damaged_concrete_floor_03",
+      "license": "CC0",
+      "note": "basement floor, chipped and stained"
+    },
+    "brick_wall": {
+      "maps": {
+        "diff": "brick_wall/diff.jpg",
+        "nor": "brick_wall/nor.jpg",
+        "rough": "brick_wall/rough.jpg",
+        "ao": "brick_wall/ao.jpg"
+      },
+      "tileSize": [
+        1.9,
+        1.9
+      ],
+      "source": "https://polyhaven.com/a/brick_wall_10",
+      "license": "CC0",
+      "note": "dark weathered brick, basement foundation"
+    },
+    "attic_planks": {
+      "maps": {
+        "diff": "attic_planks/diff.jpg",
+        "nor": "attic_planks/nor.jpg",
+        "rough": "attic_planks/rough.jpg",
+        "ao": "attic_planks/ao.jpg"
+      },
+      "tileSize": [
+        2.0,
+        2.0
+      ],
+      "source": "https://polyhaven.com/a/old_planks_02",
+      "license": "CC0",
+      "note": "rough grey raw boards"
+    },
+    "roof_rafters": {
+      "maps": {
+        "diff": "roof_rafters/diff.jpg",
+        "nor": "roof_rafters/nor.jpg",
+        "rough": "roof_rafters/rough.jpg",
+        "ao": "roof_rafters/ao.jpg"
+      },
+      "tileSize": [
+        1.0,
+        1.0
+      ],
+      "source": "https://polyhaven.com/a/brown_planks_09",
+      "license": "CC0",
+      "note": "raw brown boards for rafters/roof underside"
+    },
+    "tiles_kitchen": {
+      "maps": {
+        "diff": "tiles_kitchen/diff.jpg",
+        "nor": "tiles_kitchen/nor.jpg",
+        "rough": "tiles_kitchen/rough.jpg",
+        "ao": "tiles_kitchen/ao.jpg"
+      },
+      "tileSize": [
+        3.0,
+        3.0
+      ],
+      "source": "https://polyhaven.com/a/floor_tiles_06",
+      "license": "CC0",
+      "note": "checkerboard floor tiles"
+    },
+    "carpet": {
+      "maps": {
+        "diff": "carpet/diff.jpg",
+        "nor": "carpet/nor.jpg",
+        "rough": "carpet/rough.jpg",
+        "ao": "carpet/ao.jpg"
+      },
+      "tileSize": [
+        0.6,
+        0.6
+      ],
+      "source": "https://polyhaven.com/a/dirty_carpet",
+      "license": "CC0",
+      "note": "dirty faded carpet / rug"
+    },
+    "metal_rust": {
+      "maps": {
+        "diff": "metal_rust/diff.jpg",
+        "nor": "metal_rust/nor.jpg",
+        "rough": "metal_rust/rough.jpg",
+        "ao": "metal_rust/ao.jpg"
+      },
+      "tileSize": [
+        2.0,
+        2.0
+      ],
+      "source": "https://polyhaven.com/a/metal_plate_02",
+      "license": "CC0",
+      "note": "corroded steel sheet (fuse box)"
+    },
+    "wallpaper": {
+      "maps": {
+        "diff": "wallpaper/diff.jpg",
+        "nor": "wallpaper/nor.jpg",
+        "rough": "wallpaper/rough.jpg"
+      },
+      "tileSize": [
+        0.53,
+        0.53
+      ],
+      "source": "generated by tools/assets/make_wallpaper.py (procedural damask) + https://polyhaven.com/a/decrepit_wallpaper (CC0) for ageing",
+      "license": "CC0",
+      "note": "faded sage-green damask wallpaper with water stains; seamless"
+    }
+  },
+  "env": {
+    "file": "env_night.hdr",
+    "source": "https://polyhaven.com/a/kloppenheim_02",
+    "license": "CC0"
+  },
+  "decals": {
+    "tree_silhouette_1": {
+      "file": "tree_silhouette_1.png",
+      "note": "RGBA black dead-tree silhouette, trunk base at bottom centre; for window backdrops (lit by lightning)",
+      "license": "CC0 (generated by tools/assets/make_tree.py)"
+    },
+    "tree_silhouette_2": {
+      "file": "tree_silhouette_2.png",
+      "note": "variant",
+      "license": "CC0 (generated by tools/assets/make_tree.py)"
+    }
+  }
+}

@@ -1,0 +1,881 @@
+{
+ "sounds": {
+  "amb_attic": {
+   "file": "amb_attic.ogg",
+   "loop": true,
+   "volume": 0.55,
+   "spatial": false,
+   "duration": 60.0,
+   "channels": 2
+  },
+  "amb_basement": {
+   "file": "amb_basement.ogg",
+   "loop": true,
+   "volume": 0.55,
+   "spatial": false,
+   "duration": 60.0,
+   "channels": 2
+  },
+  "amb_dread": {
+   "file": "amb_dread.ogg",
+   "loop": true,
+   "volume": 0.55,
+   "spatial": false,
+   "duration": 90.0,
+   "channels": 2
+  },
+  "amb_house_tone": {
+   "file": "amb_house_tone.ogg",
+   "loop": true,
+   "volume": 0.5,
+   "spatial": false,
+   "duration": 60.0,
+   "channels": 2
+  },
+  "amb_hunt": {
+   "file": "amb_hunt.ogg",
+   "loop": true,
+   "volume": 0.6,
+   "spatial": false,
+   "duration": 60.0,
+   "channels": 2
+  },
+  "amb_rain_interior": {
+   "file": "amb_rain_interior.ogg",
+   "loop": true,
+   "volume": 0.55,
+   "spatial": false,
+   "duration": 60.0,
+   "channels": 2
+  },
+  "breath_hold_release": {
+   "file": "breath_hold_release.ogg",
+   "loop": false,
+   "volume": 0.6,
+   "spatial": false,
+   "duration": 2.422,
+   "channels": 1
+  },
+  "breath_scared": {
+   "file": "breath_scared.ogg",
+   "loop": true,
+   "volume": 0.45,
+   "spatial": false,
+   "duration": 7.0,
+   "channels": 1
+  },
+  "candle_out": {
+   "file": "candle_out.ogg",
+   "loop": false,
+   "volume": 0.5,
+   "spatial": true,
+   "duration": 1.139,
+   "channels": 1
+  },
+  "clock_tick": {
+   "file": "clock_tick.ogg",
+   "loop": true,
+   "volume": 0.45,
+   "spatial": true,
+   "duration": 8.0,
+   "channels": 1
+  },
+  "door_close_1": {
+   "file": "door_close_1.ogg",
+   "loop": false,
+   "volume": 0.65,
+   "spatial": true,
+   "group": "door_close",
+   "duration": 1.839,
+   "channels": 1
+  },
+  "door_close_2": {
+   "file": "door_close_2.ogg",
+   "loop": false,
+   "volume": 0.65,
+   "spatial": true,
+   "group": "door_close",
+   "duration": 1.804,
+   "channels": 1
+  },
+  "door_locked": {
+   "file": "door_locked.ogg",
+   "loop": false,
+   "volume": 0.7,
+   "spatial": true,
+   "duration": 1.933,
+   "channels": 1
+  },
+  "door_open_1": {
+   "file": "door_open_1.ogg",
+   "loop": false,
+   "volume": 0.6,
+   "spatial": true,
+   "group": "door_open",
+   "duration": 3.014,
+   "channels": 1
+  },
+  "door_open_2": {
+   "file": "door_open_2.ogg",
+   "loop": false,
+   "volume": 0.6,
+   "spatial": true,
+   "group": "door_open",
+   "duration": 2.969,
+   "channels": 1
+  },
+  "door_open_3": {
+   "file": "door_open_3.ogg",
+   "loop": false,
+   "volume": 0.6,
+   "spatial": true,
+   "group": "door_open",
+   "duration": 3.569,
+   "channels": 1
+  },
+  "door_slam_1": {
+   "file": "door_slam_1.ogg",
+   "loop": false,
+   "volume": 1.0,
+   "spatial": true,
+   "group": "door_slam",
+   "duration": 1.779,
+   "channels": 1
+  },
+  "door_slam_2": {
+   "file": "door_slam_2.ogg",
+   "loop": false,
+   "volume": 1.0,
+   "spatial": true,
+   "group": "door_slam",
+   "duration": 1.768,
+   "channels": 1
+  },
+  "drag_above": {
+   "file": "drag_above.ogg",
+   "loop": false,
+   "volume": 0.8,
+   "spatial": true,
+   "duration": 7.224,
+   "channels": 1
+  },
+  "drawer_open": {
+   "file": "drawer_open.ogg",
+   "loop": false,
+   "volume": 0.55,
+   "spatial": true,
+   "duration": 1.553,
+   "channels": 1
+  },
+  "entity_breath": {
+   "file": "entity_breath.ogg",
+   "loop": true,
+   "volume": 0.7,
+   "spatial": true,
+   "duration": 5.0,
+   "channels": 1
+  },
+  "entity_click_1": {
+   "file": "entity_click_1.ogg",
+   "loop": false,
+   "volume": 0.7,
+   "spatial": true,
+   "group": "entity_click",
+   "duration": 0.872,
+   "channels": 1
+  },
+  "entity_click_2": {
+   "file": "entity_click_2.ogg",
+   "loop": false,
+   "volume": 0.7,
+   "spatial": true,
+   "group": "entity_click",
+   "duration": 1.163,
+   "channels": 1
+  },
+  "entity_click_3": {
+   "file": "entity_click_3.ogg",
+   "loop": false,
+   "volume": 0.7,
+   "spatial": true,
+   "group": "entity_click",
+   "duration": 1.347,
+   "channels": 1
+  },
+  "entity_crack_1": {
+   "file": "entity_crack_1.ogg",
+   "loop": false,
+   "volume": 0.8,
+   "spatial": true,
+   "group": "entity_crack",
+   "duration": 0.583,
+   "channels": 1
+  },
+  "entity_crack_2": {
+   "file": "entity_crack_2.ogg",
+   "loop": false,
+   "volume": 0.8,
+   "spatial": true,
+   "group": "entity_crack",
+   "duration": 0.992,
+   "channels": 1
+  },
+  "entity_crack_3": {
+   "file": "entity_crack_3.ogg",
+   "loop": false,
+   "volume": 0.8,
+   "spatial": true,
+   "group": "entity_crack",
+   "duration": 0.912,
+   "channels": 1
+  },
+  "entity_crack_4": {
+   "file": "entity_crack_4.ogg",
+   "loop": false,
+   "volume": 0.8,
+   "spatial": true,
+   "group": "entity_crack",
+   "duration": 0.614,
+   "channels": 1
+  },
+  "entity_skitter_1": {
+   "file": "entity_skitter_1.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": true,
+   "group": "entity_skitter",
+   "duration": 1.05,
+   "channels": 1
+  },
+  "entity_skitter_2": {
+   "file": "entity_skitter_2.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": true,
+   "group": "entity_skitter",
+   "duration": 1.35,
+   "channels": 1
+  },
+  "entity_skitter_3": {
+   "file": "entity_skitter_3.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": true,
+   "group": "entity_skitter",
+   "duration": 1.65,
+   "channels": 1
+  },
+  "entity_skitter_4": {
+   "file": "entity_skitter_4.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": true,
+   "group": "entity_skitter",
+   "duration": 1.9,
+   "channels": 1
+  },
+  "entity_whisper_1": {
+   "file": "entity_whisper_1.ogg",
+   "loop": false,
+   "volume": 0.65,
+   "spatial": true,
+   "group": "entity_whisper",
+   "duration": 2.405,
+   "channels": 1
+  },
+  "entity_whisper_2": {
+   "file": "entity_whisper_2.ogg",
+   "loop": false,
+   "volume": 0.65,
+   "spatial": true,
+   "group": "entity_whisper",
+   "duration": 2.802,
+   "channels": 1
+  },
+  "entity_whisper_3": {
+   "file": "entity_whisper_3.ogg",
+   "loop": false,
+   "volume": 0.65,
+   "spatial": true,
+   "group": "entity_whisper",
+   "duration": 3.235,
+   "channels": 1
+  },
+  "entity_whisper_4": {
+   "file": "entity_whisper_4.ogg",
+   "loop": false,
+   "volume": 0.65,
+   "spatial": true,
+   "group": "entity_whisper",
+   "duration": 4.513,
+   "channels": 1
+  },
+  "flashlight_flicker": {
+   "file": "flashlight_flicker.ogg",
+   "loop": false,
+   "volume": 0.35,
+   "spatial": true,
+   "duration": 0.45,
+   "channels": 1
+  },
+  "flashlight_off": {
+   "file": "flashlight_off.ogg",
+   "loop": false,
+   "volume": 0.4,
+   "spatial": true,
+   "duration": 0.255,
+   "channels": 1
+  },
+  "flashlight_on": {
+   "file": "flashlight_on.ogg",
+   "loop": false,
+   "volume": 0.4,
+   "spatial": true,
+   "duration": 0.228,
+   "channels": 1
+  },
+  "floor_creak_1": {
+   "file": "floor_creak_1.ogg",
+   "loop": false,
+   "volume": 0.55,
+   "spatial": true,
+   "group": "floor_creak",
+   "duration": 3.621,
+   "channels": 1
+  },
+  "floor_creak_2": {
+   "file": "floor_creak_2.ogg",
+   "loop": false,
+   "volume": 0.55,
+   "spatial": true,
+   "group": "floor_creak",
+   "duration": 2.867,
+   "channels": 1
+  },
+  "floor_creak_3": {
+   "file": "floor_creak_3.ogg",
+   "loop": false,
+   "volume": 0.55,
+   "spatial": true,
+   "group": "floor_creak",
+   "duration": 4.217,
+   "channels": 1
+  },
+  "floor_creak_4": {
+   "file": "floor_creak_4.ogg",
+   "loop": false,
+   "volume": 0.55,
+   "spatial": true,
+   "group": "floor_creak",
+   "duration": 1.512,
+   "channels": 1
+  },
+  "floor_creak_5": {
+   "file": "floor_creak_5.ogg",
+   "loop": false,
+   "volume": 0.55,
+   "spatial": true,
+   "group": "floor_creak",
+   "duration": 1.47,
+   "channels": 1
+  },
+  "footstep_carpet_1": {
+   "file": "footstep_carpet_1.ogg",
+   "loop": false,
+   "volume": 0.4,
+   "spatial": true,
+   "group": "footstep_carpet",
+   "duration": 0.485,
+   "channels": 1
+  },
+  "footstep_carpet_2": {
+   "file": "footstep_carpet_2.ogg",
+   "loop": false,
+   "volume": 0.4,
+   "spatial": true,
+   "group": "footstep_carpet",
+   "duration": 0.41,
+   "channels": 1
+  },
+  "footstep_carpet_3": {
+   "file": "footstep_carpet_3.ogg",
+   "loop": false,
+   "volume": 0.4,
+   "spatial": true,
+   "group": "footstep_carpet",
+   "duration": 0.39,
+   "channels": 1
+  },
+  "footstep_carpet_4": {
+   "file": "footstep_carpet_4.ogg",
+   "loop": false,
+   "volume": 0.4,
+   "spatial": true,
+   "group": "footstep_carpet",
+   "duration": 0.429,
+   "channels": 1
+  },
+  "footstep_concrete_1": {
+   "file": "footstep_concrete_1.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_concrete",
+   "duration": 1.099,
+   "channels": 1
+  },
+  "footstep_concrete_2": {
+   "file": "footstep_concrete_2.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_concrete",
+   "duration": 1.095,
+   "channels": 1
+  },
+  "footstep_concrete_3": {
+   "file": "footstep_concrete_3.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_concrete",
+   "duration": 1.105,
+   "channels": 1
+  },
+  "footstep_concrete_4": {
+   "file": "footstep_concrete_4.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_concrete",
+   "duration": 1.096,
+   "channels": 1
+  },
+  "footstep_wood_1": {
+   "file": "footstep_wood_1.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_wood",
+   "duration": 0.43,
+   "channels": 1
+  },
+  "footstep_wood_2": {
+   "file": "footstep_wood_2.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_wood",
+   "duration": 0.637,
+   "channels": 1
+  },
+  "footstep_wood_3": {
+   "file": "footstep_wood_3.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_wood",
+   "duration": 0.533,
+   "channels": 1
+  },
+  "footstep_wood_4": {
+   "file": "footstep_wood_4.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_wood",
+   "duration": 0.735,
+   "channels": 1
+  },
+  "footstep_wood_5": {
+   "file": "footstep_wood_5.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_wood",
+   "duration": 0.508,
+   "channels": 1
+  },
+  "footstep_wood_6": {
+   "file": "footstep_wood_6.ogg",
+   "loop": false,
+   "volume": 0.45,
+   "spatial": true,
+   "group": "footstep_wood",
+   "duration": 0.747,
+   "channels": 1
+  },
+  "footsteps_above": {
+   "file": "footsteps_above.ogg",
+   "loop": false,
+   "volume": 0.8,
+   "spatial": true,
+   "duration": 6.938,
+   "channels": 1
+  },
+  "fridge_hum": {
+   "file": "fridge_hum.ogg",
+   "loop": true,
+   "volume": 0.35,
+   "spatial": true,
+   "duration": 20.0,
+   "channels": 1
+  },
+  "fuse_insert": {
+   "file": "fuse_insert.ogg",
+   "loop": false,
+   "volume": 0.6,
+   "spatial": true,
+   "duration": 1.916,
+   "channels": 1
+  },
+  "glass_rattle": {
+   "file": "glass_rattle.ogg",
+   "loop": false,
+   "volume": 0.55,
+   "spatial": true,
+   "duration": 1.462,
+   "channels": 1
+  },
+  "heartbeat": {
+   "file": "heartbeat.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": false,
+   "duration": 0.74,
+   "channels": 1
+  },
+  "jumpscare": {
+   "file": "jumpscare.ogg",
+   "loop": false,
+   "volume": 1.0,
+   "spatial": false,
+   "duration": 2.759,
+   "channels": 1
+  },
+  "knock_door": {
+   "file": "knock_door.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": true,
+   "duration": 3.566,
+   "channels": 1
+  },
+  "match_strike": {
+   "file": "match_strike.ogg",
+   "loop": false,
+   "volume": 0.6,
+   "spatial": true,
+   "duration": 1.421,
+   "channels": 1
+  },
+  "music_box": {
+   "file": "music_box.ogg",
+   "loop": false,
+   "volume": 0.55,
+   "spatial": true,
+   "duration": 27.79,
+   "channels": 1
+  },
+  "paper": {
+   "file": "paper.ogg",
+   "loop": false,
+   "volume": 0.5,
+   "spatial": true,
+   "duration": 1.018,
+   "channels": 1
+  },
+  "phone_hangup": {
+   "file": "phone_hangup.ogg",
+   "loop": false,
+   "volume": 0.7,
+   "spatial": true,
+   "duration": 2.342,
+   "channels": 1
+  },
+  "phone_line": {
+   "file": "phone_line.ogg",
+   "loop": false,
+   "volume": 0.7,
+   "spatial": true,
+   "duration": 9.5,
+   "channels": 1
+  },
+  "phone_pickup": {
+   "file": "phone_pickup.ogg",
+   "loop": false,
+   "volume": 0.6,
+   "spatial": true,
+   "duration": 2.455,
+   "channels": 1
+  },
+  "phone_ring": {
+   "file": "phone_ring.ogg",
+   "loop": false,
+   "volume": 0.75,
+   "spatial": true,
+   "duration": 4.272,
+   "channels": 1
+  },
+  "pickup": {
+   "file": "pickup.ogg",
+   "loop": false,
+   "volume": 0.5,
+   "spatial": true,
+   "duration": 0.542,
+   "channels": 1
+  },
+  "player_hurt_gasp": {
+   "file": "player_hurt_gasp.ogg",
+   "loop": false,
+   "volume": 0.7,
+   "spatial": false,
+   "duration": 1.402,
+   "channels": 1
+  },
+  "power_down": {
+   "file": "power_down.ogg",
+   "loop": false,
+   "volume": 0.8,
+   "spatial": true,
+   "duration": 3.532,
+   "channels": 1
+  },
+  "power_up": {
+   "file": "power_up.ogg",
+   "loop": false,
+   "volume": 0.75,
+   "spatial": true,
+   "duration": 3.145,
+   "channels": 1
+  },
+  "radio_static": {
+   "file": "radio_static.ogg",
+   "loop": true,
+   "volume": 0.35,
+   "spatial": true,
+   "duration": 15.0,
+   "channels": 1
+  },
+  "stair_creak_1": {
+   "file": "stair_creak_1.ogg",
+   "loop": false,
+   "volume": 0.5,
+   "spatial": true,
+   "group": "stair_creak",
+   "duration": 1.831,
+   "channels": 1
+  },
+  "stair_creak_2": {
+   "file": "stair_creak_2.ogg",
+   "loop": false,
+   "volume": 0.5,
+   "spatial": true,
+   "group": "stair_creak",
+   "duration": 2.16,
+   "channels": 1
+  },
+  "stair_creak_3": {
+   "file": "stair_creak_3.ogg",
+   "loop": false,
+   "volume": 0.5,
+   "spatial": true,
+   "group": "stair_creak",
+   "duration": 1.992,
+   "channels": 1
+  },
+  "sting_low": {
+   "file": "sting_low.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": false,
+   "duration": 6.744,
+   "channels": 1
+  },
+  "stinger_1": {
+   "file": "stinger_1.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": false,
+   "group": "stinger",
+   "duration": 4.987,
+   "channels": 1
+  },
+  "stinger_2": {
+   "file": "stinger_2.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": false,
+   "group": "stinger",
+   "duration": 5.95,
+   "channels": 1
+  },
+  "stinger_3": {
+   "file": "stinger_3.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": false,
+   "group": "stinger",
+   "duration": 5.326,
+   "channels": 1
+  },
+  "thunder_1": {
+   "file": "thunder_1.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": false,
+   "group": "thunder",
+   "duration": 11.89,
+   "channels": 2
+  },
+  "thunder_2": {
+   "file": "thunder_2.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": false,
+   "group": "thunder",
+   "duration": 10.883,
+   "channels": 2
+  },
+  "thunder_3": {
+   "file": "thunder_3.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": false,
+   "group": "thunder",
+   "duration": 11.502,
+   "channels": 2
+  },
+  "tinnitus": {
+   "file": "tinnitus.ogg",
+   "loop": false,
+   "volume": 0.35,
+   "spatial": false,
+   "duration": 3.2,
+   "channels": 1
+  },
+  "vo_call_1": {
+   "file": "vo_call_1.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": true,
+   "subtitle": "Sweetheart? Come here a minute.",
+   "duration": 3.834,
+   "channels": 1
+  },
+  "vo_call_2": {
+   "file": "vo_call_2.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": true,
+   "subtitle": "I'm in the kitchen, baby.",
+   "duration": 4.042,
+   "channels": 1
+  },
+  "vo_coat": {
+   "file": "vo_coat.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": true,
+   "subtitle": "You will fit. You will fit so well.",
+   "duration": 5.705,
+   "channels": 1
+  },
+  "vo_cold": {
+   "file": "vo_cold.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": true,
+   "subtitle": "It's so cold in here.",
+   "duration": 3.607,
+   "channels": 1
+  },
+  "vo_dont_look": {
+   "file": "vo_dont_look.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": true,
+   "subtitle": "Don't look at me. I'm not finished.",
+   "duration": 4.254,
+   "channels": 1
+  },
+  "vo_found": {
+   "file": "vo_found.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": true,
+   "subtitle": "There you are.",
+   "duration": 3.426,
+   "channels": 1
+  },
+  "vo_lullaby_hum": {
+   "file": "vo_lullaby_hum.ogg",
+   "loop": false,
+   "volume": 0.75,
+   "spatial": true,
+   "subtitle": "(humming)",
+   "duration": 12.436,
+   "channels": 1
+  },
+  "vo_name": {
+   "file": "vo_name.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": true,
+   "subtitle": "Eli?",
+   "duration": 2.331,
+   "channels": 1
+  },
+  "vo_phone": {
+   "file": "vo_phone.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": true,
+   "subtitle": "Why did you let them put me in the box?",
+   "duration": 4.624,
+   "channels": 1
+  },
+  "vo_phone_end": {
+   "file": "vo_phone_end.ogg",
+   "loop": false,
+   "volume": 0.9,
+   "spatial": true,
+   "subtitle": "Eli. Come back inside.",
+   "duration": 4.375,
+   "channels": 1
+  },
+  "vo_where": {
+   "file": "vo_where.ogg",
+   "loop": false,
+   "volume": 0.85,
+   "spatial": true,
+   "subtitle": "Where are you hiding?",
+   "duration": 3.708,
+   "channels": 1
+  },
+  "wall_knock": {
+   "file": "wall_knock.ogg",
+   "loop": false,
+   "volume": 0.7,
+   "spatial": true,
+   "duration": 5.291,
+   "channels": 1
+  },
+  "wardrobe_close": {
+   "file": "wardrobe_close.ogg",
+   "loop": false,
+   "volume": 0.6,
+   "spatial": true,
+   "duration": 1.296,
+   "channels": 1
+  },
+  "wardrobe_open": {
+   "file": "wardrobe_open.ogg",
+   "loop": false,
+   "volume": 0.6,
+   "spatial": true,
+   "duration": 2.134,
+   "channels": 1
+  }
+ }
+}
