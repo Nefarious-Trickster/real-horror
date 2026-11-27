@@ -15,6 +15,7 @@ export class UI {
 
   fade(to, seconds = 1.2) {
     const f = this.el.fade;
+    void f.offsetWidth;
     f.style.transition = `opacity ${seconds}s ease`;
     f.style.opacity = to;
     return new Promise((r) => setTimeout(r, seconds * 1000));

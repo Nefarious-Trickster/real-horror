@@ -4,7 +4,7 @@ html, body { margin: 0; height: 100%; background: #000; overflow: hidden; color:
 canvas#c { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; cursor: none; }
 .hidden { display: none !important; }
 
-#fade { position: fixed; inset: 0; background: #000; opacity: 1; pointer-events: none; transition: opacity 1.2s ease; z-index: 50; }
+#fade { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 1.2s ease; z-index: 50; }
 
 #hud { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
 #dot { position: absolute; left: 50%; top: 50%; width: 3px; height: 3px; margin: -1.5px; border-radius: 50%; background: rgba(230, 220, 200, 0.35); transition: all 0.15s; }
@@ -41,11 +41,11 @@ canvas#c { position: fixed; inset: 0; width: 100vw; height: 100vh; display: bloc
 #noteText .scrawl { display: inline-block; transform: rotate(-2deg) scale(1.05); color: #3a0d0a; }
 #note .close { margin-top: 18px; color: var(--dim); font-size: 15px; letter-spacing: 0.1em; }
 
-.screen { position: fixed; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, rgba(12, 8, 6, 0.88), #000 75%); text-align: center; }
+.screen { position: fixed; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, rgba(12, 8, 6, 0.88), #000 75%); text-align: center; overflow-y: auto; }
 .titleInner { max-width: 640px; padding: 20px; }
-#logo { font-family: 'IM Fell English SC', serif; font-weight: normal; font-size: clamp(64px, 14vw, 150px); letter-spacing: 0.32em; margin: 0 0 0 0.32em; color: #cfc6b4; text-shadow: 0 0 30px rgba(140, 30, 20, 0.35); animation: flick 7s infinite; }
+#logo { font-family: 'IM Fell English SC', serif; font-weight: normal; font-size: clamp(44px, min(14vw, 15vh), 150px); letter-spacing: 0.32em; margin: 0 0 0 0.32em; color: #cfc6b4; text-shadow: 0 0 30px rgba(140, 30, 20, 0.35); animation: flick 7s infinite; }
 @keyframes flick { 0%, 100% { opacity: 0.92; } 41% { opacity: 0.92; } 42% { opacity: 0.35; } 43% { opacity: 0.9; } 44% { opacity: 0.5; } 45% { opacity: 0.92; } 77% { opacity: 0.85; transform: translateX(0); } 78% { opacity: 0.6; transform: translateX(2px); } 79% { opacity: 0.9; transform: translateX(0); } }
-.tag { font-style: italic; color: var(--dim); font-size: 20px; margin: 0 0 36px; }
+.tag { font-style: italic; color: var(--dim); font-size: 20px; margin: 0 0 min(36px, 4vh); }
 .warn { color: #6c665d; font-size: 14px; line-height: 1.8; margin-top: 30px; }
 .content { color: #4e4943; font-size: 12px; letter-spacing: 0.05em; }
 h2 { font-family: 'IM Fell English SC', serif; font-weight: normal; letter-spacing: 0.15em; font-size: 38px; color: #cfc6b4; }

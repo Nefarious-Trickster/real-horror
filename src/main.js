@@ -124,6 +124,8 @@ class Game {
     this.ui.el.title.classList.add('hidden');
     this.ui.el.hud.classList.remove('hidden');
     this.input.enabled = true;
+    // cut to black, then the intro fades in from it
+    const f = this.ui.el.fade; f.style.transition = 'none'; f.style.opacity = 1; void f.offsetWidth;
     this.state = 'playing';
     this.startAmbience();
     this.director.start();
