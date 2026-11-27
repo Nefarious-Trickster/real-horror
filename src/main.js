@@ -230,29 +230,31 @@ class Game {
     if (p.hiding) { p.exitHide(); this.ui.setHiding(false); }
     p.frozen = true; p.lookLocked = true;
     // blackout, then it is right there
-    this.flashlight.dead = 0.35;
     const fwd = new THREE.Vector3(0, 0, -1).applyQuaternion(cam.quaternion); fwd.y = 0; fwd.normalize();
-    const at = p.pos.clone().addScaledVector(fwd, 0.62);
+    const at = p.pos.clone().addScaledVector(fwd, 0.66);
     at.y = p.pos.y;
     e.placeAt(at, 'jumpscare', p.pos);
     e.model.setJaw(1);
-    // lift so the face meets the eye
+    e.model.object.traverse((o) => { if (o.isMesh || o.isLine || o.isLineSegments) { if (o.userData.cs == null) o.userData.cs = o.castShadow; o.castShadow = false; } });
     e.model.object.updateMatrixWorld(true);
     const face = e.model.faceAnchor.getWorldPosition(new THREE.Vector3());
-    e.model.object.position.y += (cam.position.y - face.y) * 0.9;
-    p.lookTarget = e.model.faceAnchor.getWorldPosition(new THREE.Vector3()); p.lookBlend = 0;
-    this.audio.play('jumpscare', { volume: 1.0, bus: 'ui' });
-    this.shock(1); this.tear = 1; p.shake = 1.4;
+    e.model.object.position.y += (cam.position.y - face.y) * 0.92;
+    e.model.object.updateMatrixWorld(true);
+    p.lookTarget = e.model.faceAnchor.getWorldPosition(new THREE.Vector3()); p.lookBlend = 1;
+    this._flBase = this._flBase || this.flashlight.baseIntensity;
+    this.flashlight.has = true; this.flashlight.on = true; this.flashlight.battery = Math.max(0.5, this.flashlight.battery);
+    this.flashlight.dead = 0.22; this.flashlight.flicker = 0;
+    this.flashlight.baseIntensity = 4.5;
+    this.audio.play('jumpscare', { volume: 1.0, bus: 'ui', delay: 0.18 });
     const t0 = this.time;
-    this.flashlight.on = true; this.flashlight.has = true;
     await new Promise((r) => {
       const tick = () => {
         const t = this.time - t0;
-        p.lookBlend = Math.min(1, t * 6);
-        e.model.object.position.addScaledVector(fwd, -0.002);
-        this.redV = Math.min(0.8, t * 0.8);
-        this.shock(1);
-        if (t > 1.5) r(); else requestAnimationFrame(tick);
+        if (t > 0.2) { this.shock(0.55); this.tear = Math.max(this.tear, 0.35); p.shake = Math.max(p.shake, 1.1); }
+        if (t > 0.75) this.flashlight.flicker = 0.2;
+        e.model.object.position.addScaledVector(fwd, -0.0015);
+        this.redV = Math.max(0, Math.min(0.6, (t - 0.3) * 0.7));
+        if (t > 1.7) r(); else requestAnimationFrame(tick);
       };
       tick();
     });
@@ -278,6 +280,9 @@ class Game {
     this.dying = false;
     this.player.frozen = false; this.player.lookLocked = false; this.player.lookTarget = null; this.player.lookBlend = 0;
     this.entity.model.setJaw(0);
+    this.entity.model.object.traverse((o) => { if (o.userData.cs != null) o.castShadow = o.userData.cs; });
+    if (this._flBase) this.flashlight.baseIntensity = this._flBase;
+    this.flashlight.dead = 0; this.flashlight.flicker = 0;
     this.state = 'playing';
     this.input.requestLock();
     this.audio.stopAll(0.05);

@@ -11,9 +11,9 @@ function cookieTexture() {
   grd.addColorStop(0.18, 'rgba(255,236,205,0.95)');
   grd.addColorStop(0.26, 'rgba(255,230,200,0.62)');
   grd.addColorStop(0.3, 'rgba(255,225,190,0.7)');   // reflector ring
-  grd.addColorStop(0.36, 'rgba(255,220,185,0.3)');
-  grd.addColorStop(0.5, 'rgba(255,215,180,0.2)');
-  grd.addColorStop(0.75, 'rgba(255,215,180,0.07)');
+  grd.addColorStop(0.38, 'rgba(255,220,185,0.42)');
+  grd.addColorStop(0.55, 'rgba(255,215,180,0.3)');
+  grd.addColorStop(0.8, 'rgba(255,215,180,0.12)');
   grd.addColorStop(1, 'rgba(0,0,0,0)');
   g.fillStyle = grd; g.fillRect(0, 0, s, s);
   // dark hole at the very center (bulb filament shadow) and smudges on the lens
@@ -48,7 +48,7 @@ export class Flashlight {
     this.flicker = 0;     // seconds of forced flicker remaining
     this.dead = 0;        // seconds of forced blackout
     this.drain = 1 / 300; // per second when on
-    const L = new THREE.SpotLight(0xffe2bf, 0, 26, 0.46, 0.62, 1.7);
+    const L = new THREE.SpotLight(0xffe2bf, 0, 26, 0.5, 0.6, 1.7);
     L.castShadow = true;
     L.shadow.mapSize.set(1024, 1024);
     L.shadow.camera.near = 0.1; L.shadow.camera.far = 26;

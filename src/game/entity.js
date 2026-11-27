@@ -26,7 +26,7 @@ export class Entity {
     this.seenAmt = 0;
     this.everSeen = false;
     this.lastSting = -99;
-    this.cfg = { interval: [2.4, 3.8], step: 3.0, killDist: 1.45 };
+    this.cfg = { interval: [2.4, 3.8], step: 3.0, killDist: 1.45, lunge: 3.0, react: 0.3 };
     this.pendingDoor = null;
     this.searchT = 0;
     this.cooldown = 0;
@@ -162,7 +162,7 @@ export class Entity {
       remain += pts[i].p.distanceTo(pts[i - 1].p);
     }
     const step = this.cfg.step * (0.75 + Math.random() * 0.5) * (1 + g.player.noise * 0.6);
-    if (!door && remain <= step + this.cfg.killDist && Math.abs(g.player.pos.y - this.pos.y) < 1.6) {
+    if (!door && remain <= (this.cfg.lunge ?? step) + this.cfg.killDist && Math.abs(g.player.pos.y - this.pos.y) < 1.6) {
       g.killPlayer('dark');
       return true;
     }
@@ -295,6 +295,11 @@ export class Entity {
       this.unseen = 0;
       if (!this.wasSeen) this.onSeenStart(dist);
       this.wasSeen = true;
+      this.stare = (this.stare || 0) + dt;
+      if (this.stare > 4.5 && g.dread > 0.7 && !this.saidDontLook && this.mode === 'hunt') {
+        this.saidDontLook = true;
+        g.director.say('vo_dont_look', this.model.faceAnchor.getWorldPosition(new THREE.Vector3()), { volume: 0.9 });
+      }
       // dread grows when you hold it in the light
       g.dread = Math.min(1.2, g.dread + dt * seen * (0.05 + 0.55 / Math.max(1, dist)));
       // the flashlight struggles near it
@@ -302,6 +307,7 @@ export class Entity {
     } else {
       this.unseen += dt;
       this.wasSeen = false;
+      this.stare = 0;
     }
 
     if (this.mode === 'stalk' && this.stalk) {
@@ -316,7 +322,7 @@ export class Entity {
     if (this.mode === 'hunt') {
       if (g.player.hiding) { this.beginSearch(g.player.hiding); }
       this.nextMove -= dt;
-      if (this.nextMove <= 0 && this.unseen > 0.25) {
+      if (this.nextMove <= 0 && this.unseen > (this.cfg.react ?? 0.3)) {
         this.tryMove();
         const [a, b] = this.cfg.interval;
         this.nextMove = a + Math.random() * (b - a);

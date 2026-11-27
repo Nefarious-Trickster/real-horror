@@ -81,7 +81,7 @@ const HorrorShader = {
       // film grain (luma-weighted: more visible in shadows)
       float t = floor(uTime*24.0);
       float g = hash(vUv*uRes + t*17.13) - 0.5;
-      float gAmt = 0.055 + 0.08*uDread + 0.15*uShock;
+      float gAmt = 0.05 + 0.07*uDread + 0.08*uShock;
       col += g * gAmt * (1.2 - l);
 
       // occasional dust / scratch
@@ -89,7 +89,7 @@ const HorrorShader = {
       col += scratch*0.05;
 
       // shock flash: brief inversion-ish sting
-      col = mix(col, vec3(1.0) - col*0.6, uShock*uShock*0.15);
+      col = mix(col, vec3(1.0) - col*0.6, uShock*uShock*0.06);
 
       col *= (1.0 - uBlack);
       gl_FragColor = vec4(col, 1.0);

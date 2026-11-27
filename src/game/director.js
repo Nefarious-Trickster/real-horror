@@ -313,7 +313,7 @@ export class Director {
     if (hunting && r < 0.3) this.sfx('entity_whisper', around(3 + Math.random() * 3), { volume: 0.55 });
     else if (hunting && r < 0.45 && g.entity.pos.distanceTo(p) > 7) {
       // it calls in her voice from wherever it is — or claims to be somewhere else
-      const line = ['vo_call_2', 'vo_where', 'vo_cold', 'vo_call_1'][(Math.random() * 4) | 0];
+      const line = ['vo_call_2', 'vo_where', 'vo_cold', 'vo_call_1', 'vo_name'][(Math.random() * 5) | 0];
       this.say(line, g.entity.pos.clone().setY(g.entity.pos.y + 1.8), { volume: 0.8 });
     } else if (r < 0.65) this.sfx('floor_creak', around(4 + Math.random() * 4), { volume: 0.5 });
     else if (r < 0.75) this.sfx('glass_rattle', g.house.windows[(Math.random() * g.house.windows.length) | 0].pos, { volume: 0.5 });
@@ -525,7 +525,7 @@ export class Director {
     const door = V(-0.75, U, 1.45);
     this.sfx('floor_creak', door.clone().setY(U + 0.2), { volume: 0.9 });
     g.entity.placeAt(door, 'stand', this.p.pos);
-    g.entity.mode = 'hunt'; g.entity.cfg = { interval: [3.8, 5.5], step: 2.2, killDist: 1.4 };
+    g.entity.mode = 'hunt'; g.entity.cfg = { interval: [3.8, 5.5], step: 2.2, killDist: 1.4, lunge: 1.0, react: 0.55 };
     g.entity.nextMove = 6;
     g.ui.hint('It cannot move while it is seen. Keep the light on it.', 7);
     this.setCheckpoint('hunt');
@@ -537,7 +537,7 @@ export class Director {
     if (g.entity.mode !== 'hunt') {
       // restored from checkpoint
       g.entity.placeAt(V(-0.6, U, 4.6), 'stand', this.p.pos);
-      g.entity.startHunt({ interval: [3.8, 5.5], step: 2.2, killDist: 1.4, firstDelay: 5 });
+      g.entity.startHunt({ interval: [3.8, 5.5], step: 2.2, killDist: 1.4, lunge: 1.0, react: 0.55, firstDelay: 5 });
       g.ambTarget.dread = 0.35; g.ambTarget.hunt = 0.6;
     }
     this.objective('Find the key. Something is up in the attic — the hatch is on the landing.');
@@ -588,14 +588,14 @@ export class Director {
     if (!this.has('key')) this.give('key');
     // it waits between you and the hatch
     g.entity.placeAt(V(1.55, A, 2.2), 'crouch', this.p.pos);
-    g.entity.startHunt({ interval: [1.5, 2.4], step: 3.2, killDist: 1.45, firstDelay: 2.5 });
+    g.entity.startHunt({ interval: [1.5, 2.4], step: 3.2, killDist: 1.45, lunge: 1.8, react: 0.35, firstDelay: 2.5 });
     g.ambTarget.dread = 0.4; g.ambTarget.hunt = 1.0;
     this.objective('Get out. The front door.');
     if (this.flags.escapeRetry) g.ui.hint('Keep the light on it as you pass.', 5);
     await this.until(() => this.p.pos.y < U + 0.3);
     this.setCheckpoint('escape');
     // it is faster now
-    g.entity.cfg.interval = [1.1, 1.9]; g.entity.cfg.step = 3.6;
+    g.entity.cfg.interval = [1.1, 1.9]; g.entity.cfg.step = 3.6; g.entity.cfg.lunge = 2.2; g.entity.cfg.react = 0.3;
     await this.until(() => this.p.pos.y < 0.5 && this.p.pos.y > -0.5);
     this.say('vo_found', g.entity.pos.clone().setY(g.entity.pos.y + 1.8), { volume: 1 });
     await this.until(() => this.p.pos.z > 7.0);
