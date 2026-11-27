@@ -100,6 +100,9 @@ export class Director {
 
   start() { this.run(0); }
 
+  // run a side-thread of the script that must never block the main line
+  side(fn) { fn().catch((e) => { if (e !== CANCEL) console.error(e); }); }
+
   // ---------------------------------------------------------- utility
   get p() { return this.game.player; }
   zone() { return this.game.house.zoneAt(this.p.pos)?.id; }
@@ -480,29 +483,37 @@ export class Director {
     g.ui.hint('F — flashlight', 4);
     await this.until(() => g.flashlight.on);
     this.objective('Restore the power. The fuse box is in the cellar — through the back room.');
-    // a figure at the end of the hall, once
-    await this.until(() => this.zone() === 'hall' && this.p.pos.z < 1 && this.p.pos.y < 1);
-    const at = V(0.1, G, 5.3);
-    g.entity.appear(at, 'stand', { vanishUnseen: 0.25, timeout: 25, onSeen: () => { this.sfx('sting_low', null, { volume: 0.8 }); g.shock(0.5); } });
+    // a figure at the end of the hall, once, if you pass that way (never blocks progress)
+    this.side(async () => {
+      await this.until(() => (this.zone() === 'hall' && this.p.pos.z < 1 && this.p.pos.y > -0.5 && this.p.pos.y < 1) || this.p.pos.y < -1 || this.stage > 3);
+      if (this.stage > 3 || this.p.pos.y < -1 || g.entity.mode !== 'off') return;
+      g.entity.appear(V(0.1, G, 5.3), 'stand', { vanishUnseen: 0.25, timeout: 25, onSeen: () => { this.sfx('sting_low', null, { volume: 0.8 }); g.shock(0.5); } });
+    });
   }
 
   async cellar() {
     const g = this.game;
     const cellarDoor = g.house.doors.get('cellar');
-    await this.until(() => this.p.pos.y < -1.6);
+    const gotFuse = () => this.has('fuse') || this.flags.fuseFitted;
+    await this.until(() => this.p.pos.y < -1.6 || gotFuse());
     // the door above eases shut behind you
-    await this.wait(1.2);
-    if (cellarDoor.open) { cellarDoor.setOpen(false, 0.4); this.sfx('door_close', cellarDoor.worldCenter(), { volume: 0.8, rate: 0.85 }); }
-    this.objective('Find a spare fuse.');
-    await this.until(() => this.p.pos.y < -2.8);
-    await this.wait(6);
-    // footsteps cross the floor above you, toward the parlour
-    const above = this.p.pos.clone().setY(G + 0.1);
-    this.sfx('footsteps_above', above, { volume: 1.0, refDistance: 3, occlude: false });
-    await this.wait(7);
-    this.sfx('drag_above', V(-3.5, G + 0.1, 2.5), { volume: 1.0, refDistance: 3, occlude: false });
-    await this.until(() => this.has('fuse'));
-    this.objective('Fit the fuse in the fuse box.');
+    this.side(async () => {
+      await this.wait(1.2);
+      if (cellarDoor.open && this.p.pos.y < -1) { cellarDoor.setOpen(false, 0.4); this.sfx('door_close', cellarDoor.worldCenter(), { volume: 0.8, rate: 0.85 }); }
+    });
+    if (!gotFuse()) this.objective('Find a spare fuse.');
+    // footsteps cross the floor above you, toward the parlour (timed, never blocks)
+    this.side(async () => {
+      await this.until(() => this.p.pos.y < -2.8);
+      await this.wait(6);
+      if (this.stage !== 3) return;
+      this.sfx('footsteps_above', this.p.pos.clone().setY(G + 0.1), { volume: 1.0, refDistance: 3, occlude: false });
+      await this.wait(7);
+      if (this.stage !== 3) return;
+      this.sfx('drag_above', V(-3.5, G + 0.1, 2.5), { volume: 1.0, refDistance: 3, occlude: false });
+    });
+    await this.until(gotFuse);
+    if (!this.flags.fuseFitted) this.objective('Fit the fuse in the fuse box.');
     this.sfx('wall_knock', V(-6.9, B + 1.2, 2.0), { volume: 0.8 });
     // while you are down here, the house changes
     g.sp.casket.setState('empty');

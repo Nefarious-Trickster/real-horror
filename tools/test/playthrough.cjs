@@ -43,10 +43,10 @@ const OUT = process.argv[2] || '.';
     await step('phone rings', () => { __game.player.teleport(-2.0, 0, -3.3, -Math.PI / 2); }, () => __game.director.flags.ringing);
     await step('answer', () => { useLabel('Answer'); }, () => /flashlight/.test(__game.ui.currentObjective || ''), 200000);
     await step('drawer', () => { __game.player.teleport(-6.1, 0, -4.4, 0); useLabel('Open the drawer'); __game.flashlight.toggle(); }, () => /Restore/.test(__game.ui.currentObjective || ''));
-    await step('hall (entity appears)', () => { __game.player.teleport(-0.4, 0, -1.0, Math.PI); }, () => __game.director.stage === 3);
-    await step('cellar', () => { useLabel('^Open', (it) => it.door && it.door.id === 'cellar'); __game.player.teleport(4, -3, -4, Math.PI); }, () => /spare fuse/.test(__game.ui.currentObjective || ''));
-    await step('take fuse', () => { __game.player.teleport(-1.6, -3, 4.6, Math.PI); useLabel('Take the fuse'); }, () => /Fit the fuse/.test(__game.ui.currentObjective || ''), 200000);
-    await step('fit fuse', () => { __game.player.teleport(-6.2, -3, -3.8, Math.PI / 2); useLabel('Fit the fuse'); }, () => /upstairs/.test(__game.ui.currentObjective || ''), 200000);
+    // dining-room route: never walk the north hall; then grab and fit the fuse right away
+    await step('via dining room', () => { __game.player.teleport(4, 0, 3, Math.PI); }, () => __game.director.stage === 3);
+    await step('cellar', () => { useLabel('^Open', (it) => it.door && it.door.id === 'cellar'); __game.player.teleport(-1.6, -3, 4.6, Math.PI); useLabel('Take the fuse'); }, () => __game.inventory.has('fuse'));
+    await step('fit fuse at once', () => { __game.player.teleport(-6.2, -3, -3.8, Math.PI / 2); useLabel('Fit the fuse'); }, () => /upstairs/.test(__game.ui.currentObjective || ''), 200000);
     await step('up from cellar', () => { __game.player.teleport(4, 0, -2, 0); }, () => /Check on her/.test(__game.ui.currentObjective || ''));
     await step('see casket', () => { __game.player.teleport(-2.2, 0, 3.25, Math.PI / 2, -0.4); }, () => /Get out/.test(__game.ui.currentObjective || ''), 200000);
     await step('try front door', () => { __game.player.teleport(0, 0, 5.3, 0); useLabel('Locked'); }, () => /Her room/.test(__game.ui.currentObjective || ''));
